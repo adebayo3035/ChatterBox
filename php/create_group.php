@@ -25,7 +25,7 @@
                     VALUES ({$ran_id}, '{$creator_id}','{$group_name}', '{$group_description}', '{$new_img_name}')");
 
 $insert_query2 = mysqli_query($conn, "INSERT INTO group_members (group_id, user_id, role)
-VALUES ({$ran_id}, '{$creator_id}', '{Group Admin}')");
+VALUES ({$ran_id}, '{$creator_id}', '{Super Admin}')");
                     if ($insert_query && $insert_query2) {
                         $success_message = "Group has been Created Successfully!";
                     } else {

@@ -9,7 +9,9 @@ if (!isset($_SESSION['unique_id'])) {
 
 <body>
     <div class="wrapper">
+    
         <section class="users">
+        <a href="group_chat.php?group_id=<?php echo $_SESSION['group_id'] ?>" class="back-icon"><i class="fas fa-arrow-left"></i></a>
         <div class="search">
         <span class="text">Search for Group Member</span>
         <input type="text" placeholder="Enter name to search...">

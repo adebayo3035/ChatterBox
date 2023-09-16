@@ -12,6 +12,7 @@
       <header>
         <?php 
           $group_id = mysqli_real_escape_string($conn, $_GET['group_id']);
+          $_SESSION['group_id'] = $group_id;
           $sql = mysqli_query($conn, "SELECT * FROM groups WHERE group_id = {$group_id}");
           if(mysqli_num_rows($sql) > 0){
             $row = mysqli_fetch_assoc($sql);
@@ -25,9 +26,10 @@
           <span><?php echo $row['group_name']?></span>
           <p><?php echo $row['group_description']; ?></p>
         </div>
+
+         <a href="group_members.php?group_id=<?php echo $_SESSION['group_id']; ?>">Members</a>
+
         
-         <!-- <a href="group_members.php?group_id=<?php echo $group_id; ?>">Members</a> -->
-         <a href="group_members.php?group_id=<?php echo $row['group_id']; ?> "> Group Members </a>
         <!-- <a href="group_members.php?group_id='. $group_data['group_id'] .'" class="logout">Members</a> -->
       </header>
       <div class="chat-box"> 
