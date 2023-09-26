@@ -353,6 +353,11 @@ i{
   font-style: italic;
 }
 
+#current-role{
+  background-color: #007bff;
+  color: #fff;
+}
+
 /* Responive media query */
 @media screen and (max-width: 450px) {
   .form, .users{

@@ -1,10 +1,5 @@
 <?php
     while($row2 = mysqli_fetch_assoc($query2)){
-
-        
-        
-
-
                 $output .= '<a href="group_chat.php?group_id='. $row2['group_id'] .'">
                     <div class="content">
                     <img src="php/group_headers/'. $row2['group_image'] .'" alt="">

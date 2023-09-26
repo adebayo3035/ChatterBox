@@ -30,16 +30,18 @@ if (isset($_SESSION['group_id'])) {
         while ($group_data = mysqli_fetch_assoc($query)) {
 
             // Output1 will be displayed for Group Admins to allow them to set roles for other members
-            $output1 .= '<a href="add_admin.php?user_id =' . ($group_data['unique_id']) . '">
-            
+            $output1 .= '<a href="add_admin.php?user_id='.$group_data['unique_id'].'">
                 <div class="content">
                     <img src="php/images/' . $group_data['img'] . '" alt="">
                     <div class="details">
-                        <span>' . $group_data['fname'] . " " . $group_data['lname'] . ' ' . '</span> <br/> <i id="role">' . $group_data['role'] . '</i>.
+                        <span>' . $group_data['fname'] . " " . $group_data['lname'] . ' ' . '</span> 
+                        <br/> <i id="role">' . $group_data['role'] . '</i>.
+                        <br/> <i id="role">' . $group_data['unique_id'] . '</i>
                     </div>
                 </div>
                 <div class="status-dot"><i class="fas fa-circle"></i></div>
-            </a>';
+            </a>  <a href="change_role.php?user_id='.$group_data['unique_id'].'"><i class="fas fa-trash"></i></a>';
+
 
             // Output2 wil be displayed for ordinary members to disallow them from setting roles for group members
             $output2 .= '<a href="#">
@@ -47,12 +49,15 @@ if (isset($_SESSION['group_id'])) {
                 <div class="content">
                     <img src="php/images/' . $group_data['img'] . '" alt="">
                     <div class="details">
-                        <span>' . $group_data['fname'] . " " . $group_data['lname'] . ' ' . '</span> <br/> <i id="role">' . $group_data['role'] . '</i>.
+                        <span>' . $group_data['fname'] . " " . $group_data['lname'] . ' ' . '</span> 
+                        <br/> <i id="role">' . $group_data['role'] . '</i>.
+                        <br/> <i id="role">' . $group_data['unique_id'] . '</i>
                     </div>
                 </div>
                 <div class="status-dot"><i class="fas fa-circle"></i></div>
             </a>';
-            $_SESSION['user_id'] = $group_data['unique_id'];
+             $_SESSION['user_id'] = $group_data['unique_id'];
+            // $_GET['user_id'] = $group_data['unique_id'];
         }
         // <a href="add_admin.php?user_id='. $group_data['unique_id'] .'">
 
