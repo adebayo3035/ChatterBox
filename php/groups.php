@@ -2,7 +2,7 @@
     session_start();
     include_once "config.php";
     $user_id = $_SESSION['unique_id'];
-    $sql = "SELECT * from groups LEFT JOIN group_members ON groups.group_id = group_members.group_id WHERE group_members.user_id = {$user_id}";
+    $sql = "SELECT * from groups LEFT JOIN group_members ON groups.group_id = group_members.group_id WHERE (group_members.user_id = {$user_id} AND group_members.status = 'Active') ";
    
     $query = mysqli_query($conn, $sql);
     $output = "";
@@ -18,7 +18,6 @@
                         <p>'.$group_data['group_description'].'</p>
                     </div>
                 </div>
-                <div class="status-dot"><i class="fas fa-circle"></i></div>
             </a>';
         } 
             

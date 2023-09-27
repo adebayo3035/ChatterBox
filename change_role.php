@@ -18,7 +18,7 @@ $group_id = $_SESSION['group_id'];
     <!-- <a href="group_members.php" class="back-icon"><i class="fas fa-arrow-left"></i></a> -->
     <a href="group_members.php?group_id=<?php echo $_SESSION['group_id'] ?>" class="back-icon"><i class="fas fa-arrow-left"></i></a>
       <header>Change User Role</header>
-      <form action="delete_member.php?user_id=<?php echo $user_id; ?>" method="POST" enctype="multipart/form-data" autocomplete="off" id="role_form">
+      <form action="change_role.php?user_id=<?php echo $user_id; ?>" method="POST" enctype="multipart/form-data" autocomplete="off" id="role_form">
         <div class="error-text" id="error-text"></div>
         <div class="field input">
           <label>Select Role:</label>

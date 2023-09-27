@@ -21,41 +21,56 @@ if (mysqli_num_rows($query2) > 0) {
 if (isset($_SESSION['group_id'])) {
     $group_Id = trim($_SESSION['group_id']);
     // select group member Data from users and group_members table
-    $sql = "SELECT * from users LEFT JOIN group_members ON users.unique_id = group_members.user_id WHERE group_members.group_id = {$group_Id}";
+    $sql = "SELECT * from users LEFT JOIN group_members ON users.unique_id = group_members.user_id WHERE group_members.group_id = {$group_Id} AND group_members.membership_status ='Active'";
     $query = mysqli_query($conn, $sql);
     $output1 = "";
     $output2 = "";
     $header = '<a href="add_member.php?group_id=' . $group_Id . '"> Add Member </a>';
+    $offline = 'offline';
     if (mysqli_num_rows($query) > 0) {
         while ($group_data = mysqli_fetch_assoc($query)) {
 
             // Output1 will be displayed for Group Admins to allow them to set roles for other members
-            $output1 .= '<a href="add_admin.php?user_id='.$group_data['unique_id'].'">
+            $output1 .= '<a>
                 <div class="content">
                     <img src="php/images/' . $group_data['img'] . '" alt="">
                     <div class="details">
                         <span>' . $group_data['fname'] . " " . $group_data['lname'] . ' ' . '</span> 
                         <br/> <i id="role">' . $group_data['role'] . '</i>.
-                        <br/> <i id="role">' . $group_data['unique_id'] . '</i>
+                        
                     </div>
-                </div>
-                <div class="status-dot"><i class="fas fa-circle"></i></div>
-            </a>  <a href="change_role.php?user_id='.$group_data['unique_id'].'"><i class="fas fa-trash"></i></a>';
 
-
+                    <div class = "admin-actions">
+                        <a href="change_role.php?user_id='.$group_data['unique_id'].'"><i class="fa fa-pencil" title="Change Role"></i></a>
+                        <a href="delete_member.php?user_id='.$group_data['unique_id'].'"><i class="fas fa-trash" title="Remove User"></i></a>
+                    </div>';
+                    // Check the status and conditionally add the $offline variable to the class
+                    if ($group_data['status'] == "Offline now") {
+                        $output1 .= '<div class="status-dot '. $offline . '"><i class="fas fa-circle"></i></div>';
+                    } else {
+                        $output1 .= '<div class="status-dot"><i class="fas fa-circle"></i></div>';
+                    }
+        $output1 .= '</div> </a>';
+            
             // Output2 wil be displayed for ordinary members to disallow them from setting roles for group members
             $output2 .= '<a href="#">
-            
-                <div class="content">
-                    <img src="php/images/' . $group_data['img'] . '" alt="">
-                    <div class="details">
-                        <span>' . $group_data['fname'] . " " . $group_data['lname'] . ' ' . '</span> 
-                        <br/> <i id="role">' . $group_data['role'] . '</i>.
-                        <br/> <i id="role">' . $group_data['unique_id'] . '</i>
-                    </div>
+            <div class="content">
+                <img src="php/images/' . $group_data['img'] . '" alt="">
+                <div class="details">
+                    <span>' . $group_data['fname'] . " " . $group_data['lname'] . ' ' . '</span> 
+                    <br/> <i id="role">' . $group_data['role'] . '</i>.
                 </div>
-                <div class="status-dot"><i class="fas fa-circle"></i></div>
-            </a>';
+            </div>';
+        
+        // Check the status and conditionally add the $offline variable to the class
+        if ($group_data['status'] == "Offline now") {
+            $output2 .= '<div class="status-dot '. $offline . '"><i class="fas fa-circle"></i></div>';
+        } else {
+            $output2 .= '<div class="status-dot"><i class="fas fa-circle"></i></div>';
+        }
+        $output2 .= '</a>';
+        
+            
              $_SESSION['user_id'] = $group_data['unique_id'];
             // $_GET['user_id'] = $group_data['unique_id'];
         }
