@@ -1,0 +1,16 @@
+
+    /* Navigation bar on header.php */
+    .navbar {
+      width: 100%;
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      margin-bottom: -100px;;
+     
+    }
+    .navbar a img{
+      width: 100px;
+      height: 70px;
+      border-radius: 12px;
+      cursor: pointer;
+    }

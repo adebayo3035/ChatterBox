@@ -19,18 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap" rel="stylesheet">
 
-  <style>
-    /* Navigation bar on header.php */
-    .navbar {
-      /* border: 2px solid red; */
-      margin-top: -550px;
-    }
-    .navbar a img{
-      width: 100px;
-      height: 70px;
-      border-radius: 12px;
-      cursor: pointer;
-    }
-  </style>
+  
 </head>
+<?php include_once "navbar.php"; ?>
  
