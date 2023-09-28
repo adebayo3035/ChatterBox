@@ -2,7 +2,7 @@
     session_start();
     include_once "config.php";
     $user_id = $_SESSION['unique_id'];
-    $sql = "SELECT * from groups LEFT JOIN group_members ON groups.group_id = group_members.group_id WHERE (group_members.user_id = {$user_id} AND group_members.status = 'Active') ";
+    $sql = "SELECT * from groups LEFT JOIN group_members ON groups.group_id = group_members.group_id WHERE (group_members.user_id = {$user_id} AND group_members.membership_status = 'Active') ";
    
     $query = mysqli_query($conn, $sql);
     $output = "";

@@ -44,7 +44,7 @@
                 }
             }
             else{
-                echo "This e-mail address does not exist";
+                echo "This e-mail address does not exist in your address book!";
             }
         }
         else{
