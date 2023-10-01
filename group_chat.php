@@ -23,7 +23,8 @@
         <a href="groups.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
         <img src="php/group_headers/<?php echo $row['group_image']; ?>" alt="">
         <div class="details">
-          <span><?php echo $row['group_name']?></span>
+          <span><?php echo $row['group_name']?></span> 
+          <a href="edit_group.php?group_id=<?php echo $_SESSION['group_id']; ?>"><i class="fa fa-pencil" title="Modify Group Information"></i></a>
           <p><?php echo $row['group_description']; ?></p>
         </div>
 
