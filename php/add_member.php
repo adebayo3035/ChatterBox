@@ -12,10 +12,10 @@
                     $unique_id = $row['unique_id'];
                 }
                 // check if user already exist
-                $check_User = mysqli_query($conn,"SELECT user_id, status FROM group_members WHERE user_id = $unique_id AND group_id = $group_id");
+                $check_User = mysqli_query($conn,"SELECT user_id, membership_status FROM group_members WHERE user_id = $unique_id AND group_id = $group_id");
                 if(mysqli_num_rows($check_User) > 0){
                     $row = mysqli_fetch_assoc($check_User);
-                    $status= $row['status'];
+                    $status= $row['membership_status'];
 
                     // If User Status is Removed, then Update the Status to Active
                     if($status == 'Removed'){

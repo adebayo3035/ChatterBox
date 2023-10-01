@@ -10,6 +10,7 @@
 <body>
   <div class="wrapper">
     <section class="form signup">
+    <a href="groups.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
       <header>Create Group Chat</header>
       <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
       <div class="error-text "></div>

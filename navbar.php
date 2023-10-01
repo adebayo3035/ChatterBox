@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ChatterBox
   </title>
-  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="css/navbar.css">
 
 
 

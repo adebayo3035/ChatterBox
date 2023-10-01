@@ -27,7 +27,8 @@
           <p><?php echo $row['group_description']; ?></p>
         </div>
 
-         <a href="group_members.php?group_id=<?php echo $_SESSION['group_id']; ?>">Members</a>
+         <a href="group_members.php?group_id=<?php echo $_SESSION['group_id']; ?>">View Members</a> <br/>
+         <a href="delete_group.php?group_id=<?php echo $_SESSION['group_id']; ?>">Delete Group</a>
 
         
         <!-- <a href="group_members.php?group_id='. $group_data['group_id'] .'" class="logout">Members</a> -->

@@ -1,5 +1,5 @@
+
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en">
 
 <head>
@@ -8,10 +8,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ChatterBox
   </title>
-  <link rel="icon" href="../ChatterBox/logo.png" type="image/x-icon">
+  <link rel="icon" href="../ChatterBox/images/logo.png" type="image/x-icon">
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style2.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,5 +21,7 @@
 
   
 </head>
-<?php include_once "navbar.php"; ?>
+<?php 
+// include_once "navbar.php"; ?>
+
  

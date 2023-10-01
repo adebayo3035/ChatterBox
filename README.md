@@ -42,9 +42,9 @@ ChatterBox is a versatile chat application that allows users to engage in both i
    - Start chatting with friends and colleagues.
 
 ## Screenshots
-![Screenshot 1](Screenshot-1.png)
+![Screenshot 1](images/Screenshot-1.png)
 
-![ScreenShot 2](Screenshot-2.png)
+![ScreenShot 2](images/Screenshot-2.png)
 
 ## Technologies Used
 
