@@ -320,6 +320,7 @@ body{
 .chat-box .incoming{
   display: flex;
   align-items: flex-end;
+
 }
 .chat-box .incoming img{
   height: 35px;
@@ -328,12 +329,15 @@ body{
 .chat-box .incoming .details{
   margin-right: auto;
   margin-left: 10px;
-  max-width: calc(100% - 130px);
+  /* max-width: calc(100% - 130px); */
+  width: fit-content;
+ 
 }
 .incoming .details p{
   background: #fff;
   color: #333;
   border-radius: 18px 18px 18px 0;
+  
 }
 .typing-area{
   padding: 18px 30px;

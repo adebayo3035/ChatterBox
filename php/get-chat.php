@@ -15,13 +15,16 @@
                     $output .= '<div class="chat outgoing">
                                 <div class="details">
                                     <p>'. $row['msg'] .'</p>
+                                    <i>'. $row['date_time'] .'</i>
                                 </div>
                                 </div>';
                 }else{
+                    // date_time is the Date and time the messages was sent
                     $output .= '<div class="chat incoming">
                                 <img src="php/images/'.$row['img'].'" alt="">
                                 <div class="details">
                                     <p>'. $row['msg'] .'</p>
+                                    <i>'. $row['date_time'] .'</i>
                                 </div>
                                 </div>';
                 }
@@ -35,3 +38,5 @@
     }
 
 ?>
+
+

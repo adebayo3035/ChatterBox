@@ -11,11 +11,13 @@
         $query = mysqli_query($conn, $sql);
         if(mysqli_num_rows($query) > 0){
             while($row = mysqli_fetch_assoc($query)){
+                // date_time is the Date and time the messages was sent
                     $output .= '<div class="chat incoming">
                                 <img src="php/images/'.$row['img'].'" alt="">
                                 <div class="details">
                                     <i> '.$row['fname']. ' '. $row['lname'].' </i>
                                     <p>'. $row['message'] .'</p>
+                                    <i>'. $row['date_time'] . '</i>
                                 </div>
                                 </div>';
             }
