@@ -50,7 +50,7 @@ $user_id = $_SESSION['unique_id'];
 <?php
 $deleteSuccess = false;
 if(isset($_GET['group_id'])){
-    echo $_GET['group_id'];
+    
     if(isset($_POST['DELETE_GROUP'])){
         //Check User existing role before Deleting Group
         $sql = "SELECT role FROM group_members WHERE user_id = {$user_id} AND group_id = {$group_id}";
@@ -58,7 +58,7 @@ if(isset($_GET['group_id'])){
         if(mysqli_num_rows($query) > 0){
             $row = mysqli_fetch_assoc($query);
             $user_role= $row['role'];
-            echo $user_role;
+            
             if( $user_role == 'Super Admin'){
                 $sql = "SELECT * FROM groups WHERE group_id = $group_id";
                 $result = mysqli_query($conn, $sql);
@@ -70,7 +70,6 @@ if(isset($_GET['group_id'])){
 
                     // Delete Group Header Picture from Folder
                     $oldPicturePath = "../ChatterBox/php/group_headers/" . $old_img_name; 
-                    echo $oldPicturePath;
                         if (file_exists($oldPicturePath)) {
                             unlink($oldPicturePath);
                     } 
@@ -94,6 +93,7 @@ if(isset($_GET['group_id'])){
                             echo 'errorDiv3.style.backgroundColor = "#28a745";';
                             echo 'errorDiv3.style.color = "#fff";';
                             echo 'errorDiv3.textContent = errorMessage;';
+                            echo 'errorDiv3.style.textAlign = "center"';
                         echo '</script>';
                     }
                 }
@@ -107,6 +107,10 @@ if(isset($_GET['group_id'])){
                 echo 'let errorMessage = "You cannot Delete this Group Chat";';
                 echo 'let errorDiv2 = document.getElementById("error-text");';
                 echo 'errorDiv2.textContent = errorMessage;';
+                echo 'errorDiv2.style.backgroundColor = "#ffc107";';
+                echo 'errorDiv2.style.color = "#fff";';
+                echo 'errorDiv2.style.textAlign = "center"';
+                
             echo '</script>';
 
             }         
