@@ -85,7 +85,7 @@ if(isset($_GET['user_id'])){
                     } 
                     
                     else {
-                        echo "<script>alert('Error Updating User Information') </script>" . $sql . "<br>" . mysqli_error($conn);
+                        echo "<script>alert('Error Removing User from Group') </script>" . $sql . "<br>" . mysqli_error($conn);
                     }
             }
     }
