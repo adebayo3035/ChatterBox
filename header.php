@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,9 +18,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap" rel="stylesheet">
 
-  
-</head>
-<?php 
-// include_once "navbar.php"; ?>
+  <!-- Script to Log User Out whenever they are Inactive for some secs.. here we use 30 secs -->
+  <script>
+    // Get the ID of the logged in User
+    var userId = <?php echo isset($_SESSION['unique_id']) ? $_SESSION['unique_id'] : 'null'; ?>;
 
- 
+  // set the time for system to timeout
+    const inactivityTimeout = 0.5 * 60 * 1000; // 15 minutes in milliseconds
+    let inactivityTimer;
+
+    // Function to clear and set timeout
+    function resetInactivityTimer(userId) {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(function() {
+        // Redirect to logout page or trigger a logout function
+        window.location.href = 'php/logout.php?logout_id=' + userId;
+      }, inactivityTimeout);
+    }
+    resetInactivityTimer(userId);
+
+    document.addEventListener('mousemove', function() {
+      resetInactivityTimer(userId);
+    });
+
+    document.addEventListener('keydown', function() {
+      resetInactivityTimer(userId);
+    });
+  </script>
+</head>
+<?php
+// include_once "navbar.php"; 
+?>

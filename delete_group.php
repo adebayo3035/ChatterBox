@@ -34,7 +34,7 @@ $user_id = $_SESSION['unique_id'];
                     <div class="clearfix">
                         <a href=""></a>
                         <button type="button"  class="cancelbtn">No, Cancel</button>
-                        <button type="submit" class="deletebtn" name="DELETE_GROUP">Yes, Delete</button>
+                        <button type="submit" class="deletebtn" name="DELETE_GROUP" >Yes, Delete</button>
                     </div>
                 </div>
             </form>
@@ -94,6 +94,7 @@ if(isset($_GET['group_id'])){
                             echo 'errorDiv3.style.color = "#fff";';
                             echo 'errorDiv3.textContent = errorMessage;';
                             echo 'errorDiv3.style.textAlign = "center"';
+                           
                         echo '</script>';
                     }
                 }
@@ -104,10 +105,10 @@ if(isset($_GET['group_id'])){
             }
             else{
                 echo '<script>';
-                echo 'let errorMessage = "You cannot Delete this Group Chat";';
+                echo 'let errorMessage = "You cannot Delete this Group Chat ";';
                 echo 'let errorDiv2 = document.getElementById("error-text");';
                 echo 'errorDiv2.textContent = errorMessage;';
-                echo 'errorDiv2.style.backgroundColor = "#ffc107";';
+                echo 'errorDiv2.style.backgroundColor = "#dc3545";';
                 echo 'errorDiv2.style.color = "#fff";';
                 echo 'errorDiv2.style.textAlign = "center"';
                 
